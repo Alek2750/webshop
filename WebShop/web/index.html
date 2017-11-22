@@ -9,15 +9,100 @@ and open the template in the editor.
         <title>Web Shop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            html { 
+                background: url(https://images7.alphacoders.com/706/thumb-1920-706339.jpg) no-repeat center fixed; 
+                background-size: cover;
+            }
+            body { 
+                color: white;
+                border: 2px;
+            }
+            .button {
+                display: inline-block;
+                border-radius: 4px;
+                background-color: #FF8C00;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 28px;
+                padding: 20px;
+                width: 250px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+            .button:hover span {
+                padding-right: 25px;
+            }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+        </style>
     </head>
     <body>
-        <div>Webshop content</div>
+        <!-- Navbar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+                <a class="w3-bar-item w3-button w3-opennav w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+                <a href="index.html"     class="w3-bar-item w3-button w3-hide-small w3-hover-white">Index</a>
+                <a href="input.html"   class="w3-bar-item w3-button w3-hide-small w3-hover-white">Input</a>
+            </div>
+        </div>
+        <div class="w3-row w3-padding-64">
+            <div class="w3-twothird w3-container">
+                <b><h1 class="w3-text-white">WebShop</h1>
+                    <p>Welcome to your webshop<br>
+                        Here you can buy glass and frames<br>
+                        Just click on the button and you will be redirected.<br>
+                        Or use the menu bar.</p>
+                    <a href="input.html" class="button"><span>Click here</span></a>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#input">input</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-    </body>
-</html>
+                    <!-- END MAIN -->
+                    <script>
+                        // Get the Sidenav
+                        var mySidenav = document.getElementById("mySidenav");
+                        // Get the DIV with overlay effect
+                        var overlayBg = document.getElementById("myOverlay");
+                        // Toggle between showing and hiding the sidenav, and add overlay effect
+                        function w3_open() {
+                            if (mySidenav.style.display === 'block') {
+                                mySidenav.style.display = 'none';
+                                overlayBg.style.display = "none";
+                            } else {
+                                mySidenav.style.display = 'block';
+                                overlayBg.style.display = "block";
+                            }
+                        }
+                        // Close the sidenav with the close button
+                        function w3_close() {
+                            mySidenav.style.display = "none";
+                            overlayBg.style.display = "none";
+                        }
+                    </script>
+
+                    </body>
+                    </html>

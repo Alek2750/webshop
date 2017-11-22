@@ -9,13 +9,55 @@ and open the template in the editor.
         <title>Web Shop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <style>
+            .center {
+                margin: auto;
+                width: 60%;
+                border: 3px solid #73AD21;
+                padding: 10px;
+                
+            }
+        </style>
     </head>
     <body>
-        <div>Webshop content</div>
+        <!-- Navbar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+                <a class="w3-bar-item w3-button w3-opennav w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+                <a href="index.html"     class="w3-bar-item w3-button w3-hide-small w3-hover-white">Index</a>
+                <a href="input.html"   class="w3-bar-item w3-button w3-hide-small w3-hover-white">Input</a>
+            </div>
+        </div>
+        <div class="center">
         <form method="GET" action="NewServlet">
-        <input type="text" name="attr1" value="height"/>
-        <input type="text" name="attr2" value="width"/>
-        <input type="submit" value="calculate"/>
-        </form>
+            <input type="text" name="attr1" value="height"/>
+                <input type="text" name="attr2" value="width"/>
+                <input type="submit" value="calculate"/>
+        </form></div>
+        <!-- END MAIN -->
+        <script>
+            // Get the Sidenav
+            var mySidenav = document.getElementById("mySidenav");
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+            // Toggle between showing and hiding the sidenav, and add overlay effect
+            function w3_open() {
+                if (mySidenav.style.display === 'block') {
+                    mySidenav.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidenav.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+            // Close the sidenav with the close button
+            function w3_close() {
+                mySidenav.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+        </script>
     </body>
 </html>

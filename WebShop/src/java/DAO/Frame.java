@@ -13,6 +13,22 @@ class Frame {
         frame_desp = desp;
     }
 
+    public int getFrame_id() {
+        return frame_id;
+    }
+
+    public String getFrame_name() {
+        return frame_name;
+    }
+
+    public int getFrame_price() {
+        return frame_price;
+    }
+
+    public String getFrame_desp() {
+        return frame_desp;
+    }
+
     @Override
     public String toString() {
         return "Frame{" + "frame_id=" + frame_id + ", frame_name=" + frame_name + ", frame_price=" + frame_price + ", frame_desp=" + frame_desp + '}';

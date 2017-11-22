@@ -9,92 +9,98 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataAccessObject {
+
     private final DBConnector conn;
 
     public DataAccessObject() throws Exception {
         this.conn = new DBConnector();
     }
-    
-//    public Dept getDept(int id) throws Exception {
-//        Statement stmt = conn.getConnection().createStatement();
-//        String sql = "select * from dept where deptno = " + id;
-//        Dept dept = null;
-//        try {
-//            ResultSet rs = stmt.executeQuery(sql);
-//            if (rs.next()) {
-//                int deptno = rs.getInt("deptno");
-//                String dname = rs.getString("dname");
-//                String location = rs.getString("loc");
-//                dept = new Dept(deptno, dname, location);
-//                
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return dept;
-//
-//    }
-//    
-//        public Emp getEmp(int id) throws Exception {
-//        Statement stmt = conn.getConnection().createStatement();
-//        String sql = "select * from emp where empno = " + id;
-//        Emp emp = null;
-//        try {
-//            ResultSet rs = stmt.executeQuery(sql);
-//            if (rs.next()) {
-//                int empno = rs.getInt("empno");
-//                String ename = rs.getString("ename");
-//                String deptno = rs.getString("deptno");
-//                emp = new Emp(empno, ename, deptno);
-//                
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return emp;
-//
-//    }
-//
-//    ArrayList<Dept> getAllDepts() throws Exception {
-//        Statement stmt = conn.getConnection().createStatement();
-//        String sql = "select * from dept";
-//        ArrayList<Dept> depts = new ArrayList<Dept>();
-//        Dept dept = null;
-//        try {
-//            ResultSet rs = stmt.executeQuery(sql);
-//            while (rs.next()) {
-//                int deptno = rs.getInt("deptno");
-//                String dname = rs.getString("dname");
-//                String location = rs.getString("loc");
-//                dept = new Dept(deptno, dname, location);
-//                depts.add(dept);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return depts;
-//    }
-//        ArrayList<Emp> getAllEmp() throws Exception {
-//        Statement stmt = conn.getConnection().createStatement();
-//        String sql = "select * from emp";
-//        ArrayList<Emp> emps = new ArrayList<Emp>();
-//        Emp emp = null;
-//        try {
-//            ResultSet rs = stmt.executeQuery(sql);
-//            while (rs.next()) {
-//                int empno = rs.getInt("empno");
-//                String ename = rs.getString("ename");
-//                String deptno = rs.getString("deptno");
-//                emp = new Emp(empno, ename, deptno);
-//                emps.add(emp);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return emps;
-//    }
+
+    public Glass getGlass(int id) throws Exception {
+        Statement stmt = conn.getConnection().createStatement();
+        String sql = "select * from glass where glass_name = " + id;
+        Glass glass = null;
+        try {
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                int glass_id = rs.getInt("glass_id");
+                String glass_name = rs.getString("glass_name");
+                int glass_price = rs.getInt("glass_price");
+                String glass_desp = rs.getString("glass_desp");
+                glass = new Glass(glass_id, glass_name, glass_price, glass_desp);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return glass;
+
+    }
+
+    public Frame getFrame(int id) throws Exception {
+        Statement stmt = conn.getConnection().createStatement();
+        String sql = "select * from frame where frame_name = " + id;
+        Frame frame = null;
+        try {
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                int frame_id = rs.getInt("frame_id");
+                String frame_name = rs.getString("frame_name");
+                int frame_price = rs.getInt("frame_price");
+                String frame_desp = rs.getString("frame_desp");
+                frame = new Frame(frame_id, frame_name, frame_price, frame_desp);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return frame;
+
+    }
+
+    ArrayList<Glass> getAllGlass() throws Exception {
+        Statement stmt = conn.getConnection().createStatement();
+        String sql = "select * from glass";
+        ArrayList<Glass> glasses = new ArrayList<Glass>();
+        Glass glass = null;
+        try {
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int glass_id = rs.getInt("glass_id");
+                String glass_name = rs.getString("glass_name");
+                int glass_price = rs.getInt("glass_price");
+                String glass_desp = rs.getString("glass_desp");
+                glass = new Glass(glass_id, glass_name, glass_price, glass_desp);
+                glasses.add(glass);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return glasses;
+    }
+
+    ArrayList<Frame> getAllFrame() throws Exception {
+        Statement stmt = conn.getConnection().createStatement();
+        String sql = "select * from frame";
+        ArrayList<Frame> frames = new ArrayList<Frame>();
+        Frame frame = null;
+        try {
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int frame_id = rs.getInt("frame_id");
+                String frame_name = rs.getString("frame_name");
+                int frame_price = rs.getInt("frame_price");
+                String frame_desp = rs.getString("frame_desp");
+                frame = new Frame(frame_id, frame_name, frame_price, frame_desp);
+                frames.add(frame);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return frames;
+    }
 }
