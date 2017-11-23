@@ -1,5 +1,7 @@
 package Servlet;
 
+import Logic.PriceCalc;
+import Logic.ValidInput;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -26,6 +28,10 @@ public class webServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        PriceCalc price = new PriceCalc();
+        ValidInput valid = new ValidInput();
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -33,8 +39,15 @@ public class webServlet extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet webServlet</title>");
             out.println("</head>");
+            
+            Double attr1 = Double.parseDouble(request.getParameter("attr1"));
+            Double attr2 = Double.parseDouble(request.getParameter("attr2"));
+            String choiceName = request.getParameter("choice");
+            if (!valid.valid(attr1, attr2)) {
+                response.sendRedirect("error.html");
+            }
             out.println("<body>");
-            out.println("<h1>Servlet webServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet webServlet at " + price.calcPrice(choiceName,attr1, attr2) + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
